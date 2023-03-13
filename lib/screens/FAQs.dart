@@ -4,6 +4,7 @@ import 'package:youth/models/FAQs.dart';
 import 'package:youth/widgets/appdrawer.dart';
 
 import '../widgets/actionbutton.dart';
+import '../widgets/drawericon.dart';
 
 class FAQsScreen extends StatefulWidget {
   static const routeName = '/FaqsScreen';
@@ -41,11 +42,15 @@ class _FAQsScreenState extends State<FAQsScreen> {
       drawer: AppDrawer(),
       appBar: AppBar(
         centerTitle: true,
-        title: Text('FAQs'),
+        title: Text(
+          'FAQs',
+          style: TextStyle(fontFamily: 'OpenSansSemiBold'),
+        ),
+        leading: DrawerIcon(),
       ),
       body: SingleChildScrollView(
-        child: Card(
-          margin: EdgeInsets.all(10),
+        child: Container(
+          // margin: EdgeInsets.all(10),
           child: ExpansionPanelList(
             expansionCallback: (int index, bool isExpanded) {
               setState(() {

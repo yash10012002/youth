@@ -104,14 +104,7 @@ class _Agency_ItemState extends State<Agency_Item> {
                               ),
                             ),
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: NetworkImage(agencyitem.image2),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
+                          
                           // Container(
                           //   decoration: const BoxDecoration(
                           //     image: DecorationImage(
@@ -152,7 +145,15 @@ class _Agency_ItemState extends State<Agency_Item> {
                                     ),
                                   )
                                 : Center(child: CircularProgressIndicator()),
-                          )
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: NetworkImage(agencyitem.image2),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                       Positioned(
@@ -171,18 +172,6 @@ class _Agency_ItemState extends State<Agency_Item> {
                   ),
                 ),
               ),
-
-              // ClipRRect(
-              //   borderRadius: BorderRadius.all(
-              //     Radius.circular(7),
-              //   ),
-              //   child: Image.network(
-              //     image,
-              //     height: 170,
-              //     width: double.infinity,
-              //     fit: BoxFit.cover,
-              //   ),
-              // ),
             ),
             Container(
               margin: EdgeInsets.all(15),

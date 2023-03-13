@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:youth/models/agency.dart';
 
+import '../widgets/drawericon.dart';
+
 class AgencyDetailScreen extends StatelessWidget {
   // final Agency agencyitem;
   AgencyDetailScreen({super.key});
@@ -17,7 +19,9 @@ class AgencyDetailScreen extends StatelessWidget {
     ).findById(AgencyItem);
     return Scaffold(
       appBar: AppBar(
-        title: Text(loadedProduct.title),
+        title: Text(loadedProduct.title, style: TextStyle(fontFamily: 'OpenSansSemiBold'),),
+        leading: DrawerIcon(),
+        centerTitle: true,
       ),
       body: Center(
         child: Image.network(loadedProduct.image),
