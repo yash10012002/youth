@@ -3,6 +3,7 @@ import 'package:youth/models/urgent.dart';
 import 'package:youth/widgets/appdrawer.dart';
 
 import '../widgets/actionbutton.dart';
+import '../widgets/drawericon.dart';
 import '../widgets/urgent_item.dart';
 
 class UrgentHelpScreen extends StatelessWidget {
@@ -13,21 +14,26 @@ class UrgentHelpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Urgent Help'),
+        title: Text(
+          'Urgent Help',
+          style: TextStyle(fontFamily: 'OpenSansSemiBold'),
+        ),
+        leading: DrawerIcon(),
+        centerTitle: true,
       ),
       drawer: AppDrawer(),
       body: Column(
         children: [
           Container(
-            margin: EdgeInsets.all(10),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Center(
-                child: Text(
-                  'In case of urgent help, the following services will help you.',
-                  style: TextStyle(fontSize: 18),
-                  textAlign: TextAlign.center,
-                ),
+            margin: EdgeInsets.only(left: 40, right: 40, top: 20, bottom: 20),
+            child: Center(
+              child: Text(
+                'In case of urgent help, the following services will help you.',
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Color(0x545454).withOpacity(1),
+                    fontFamily: 'OpenSans'),
+                textAlign: TextAlign.center,
               ),
             ),
           ),

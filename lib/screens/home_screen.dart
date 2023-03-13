@@ -14,6 +14,8 @@ import '../widgets/article_item.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../widgets/drawericon.dart';
+
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
   List<String> titles = <String>[
@@ -73,6 +75,21 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  // Widget DrawerIcon() {
+  //   return Builder(
+  //     builder: (context) => IconButton(
+  //       icon: Image.asset(
+  //         'assets/images/More.png',
+  //         height: 20,
+  //         width: 22,
+  //       ),
+  //       onPressed: () {
+  //         Scaffold.of(context).openDrawer();
+  //       },
+  //     ),
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
     const int tabsCount = 2;
@@ -83,20 +100,21 @@ class HomeScreen extends StatelessWidget {
       length: tabsCount,
       child: Scaffold(
         appBar: AppBar(
-          leading: Builder(
-            builder: (context) => IconButton(
-              icon: isSmallScreen
-                  ? Image.asset(
-                      'assets/images/More.png',
-                      height: 20,
-                      width: 22,
-                    )
-                  : Image.asset('assets/images/More@3x.png'),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-            ),
-          ),
+          leading: DrawerIcon(),
+          // Builder(
+          //   builder: (context) => IconButton(
+          //     icon: isSmallScreen
+          //         ? Image.asset(
+          //             'assets/images/More.png',
+          //             height: 20,
+          //             width: 22,
+          //           )
+          //         : Image.asset('assets/images/More@3x.png'),
+          //     onPressed: () {
+          //       Scaffold.of(context).openDrawer();
+          //     },
+          //   ),
+          // ),
           centerTitle: true,
           title: Text(
             'Home',

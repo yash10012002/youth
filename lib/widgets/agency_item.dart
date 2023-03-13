@@ -30,8 +30,8 @@ class _Agency_ItemState extends State<Agency_Item> {
   // final List<Agency> list;
   late VideoPlayerController _videoPlayerController;
   bool _isPlaying = false;
-  Uri url = Uri.parse(
-      'https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4');
+  // Uri url = Uri.parse(
+  //     'https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4');
 
   @override
   void initState() {
@@ -46,7 +46,8 @@ class _Agency_ItemState extends State<Agency_Item> {
   }
 
   void _loadVideo() {
-    _videoPlayerController = VideoPlayerController.network('$url')
+    final url = Provider.of<Agency>(context, listen: false).url;
+    _videoPlayerController = VideoPlayerController.network(url)
       ..initialize().then((_) {
         setState(() {});
       });
@@ -66,7 +67,6 @@ class _Agency_ItemState extends State<Agency_Item> {
   @override
   Widget build(BuildContext context) {
     final agencyitem = Provider.of<Agency>(context);
-
     return InkWell(
       child: Container(
         // margin: EdgeInsets.all(10),
@@ -104,14 +104,7 @@ class _Agency_ItemState extends State<Agency_Item> {
                               ),
                             ),
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: NetworkImage(agencyitem.image2),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
+                          
                           // Container(
                           //   decoration: const BoxDecoration(
                           //     image: DecorationImage(
@@ -121,23 +114,46 @@ class _Agency_ItemState extends State<Agency_Item> {
                           //     ),
                           //   ),
                           // ),
+                          //                       FutureBuilder(
+                          //   future: videoController.initialize(),
+                          //   builder: (context, snapshot) {
+                          //     if (snapshot.connectionState == ConnectionState.done) {
+                          //       return AspectRatio(
+                          //         aspectRatio: videoController.value.aspectRatio,
+                          //         child: VideoPlayer(videoController),
+                          //       );
+                          //     } else {
+                          //       return Center(child: CircularProgressIndicator());
+                          //     }
+                          //   },
+                          // ),
                           GestureDetector(
                             onTap: _playPauseVideo,
-                            child: AspectRatio(
-                              aspectRatio:
-                                  _videoPlayerController.value.aspectRatio,
-                              child: Stack(
-                                children: [
-                                  VideoPlayer(_videoPlayerController),
-                                  if (!_isPlaying)
-                                    Center(
-                                      child: Icon(Icons.play_arrow,
-                                          size: 80, color: Colors.white),
+                            child: _videoPlayerController.value.isInitialized
+                                ? AspectRatio(
+                                    aspectRatio: _videoPlayerController
+                                        .value.aspectRatio,
+                                    child: Stack(
+                                      children: [
+                                        VideoPlayer(_videoPlayerController),
+                                        if (!_isPlaying)
+                                          Center(
+                                            child: Icon(Icons.play_arrow,
+                                                size: 80, color: Colors.white),
+                                          ),
+                                      ],
                                     ),
-                                ],
+                                  )
+                                : Center(child: CircularProgressIndicator()),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: NetworkImage(agencyitem.image2),
+                                fit: BoxFit.cover,
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                       Positioned(
@@ -156,18 +172,6 @@ class _Agency_ItemState extends State<Agency_Item> {
                   ),
                 ),
               ),
-
-              // ClipRRect(
-              //   borderRadius: BorderRadius.all(
-              //     Radius.circular(7),
-              //   ),
-              //   child: Image.network(
-              //     image,
-              //     height: 170,
-              //     width: double.infinity,
-              //     fit: BoxFit.cover,
-              //   ),
-              // ),
             ),
             Container(
               margin: EdgeInsets.all(15),

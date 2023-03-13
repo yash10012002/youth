@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:youth/widgets/actionbutton.dart';
 
 import '../widgets/appdrawer.dart';
+import '../widgets/drawericon.dart';
 
 class HowItWorks extends StatelessWidget {
   const HowItWorks({super.key});
@@ -12,7 +13,9 @@ class HowItWorks extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('How It Works'),
+        title: Text('How It Works',style: TextStyle(fontFamily: 'OpenSansSemiBold'),),
+        leading: DrawerIcon(),
+        centerTitle: true,
       ),
       drawer: AppDrawer(),
       body: Container(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:youth/widgets/actionbutton.dart';
 
 import '../widgets/appdrawer.dart';
+import '../widgets/drawericon.dart';
 
 class AboutYWI extends StatelessWidget {
   const AboutYWI({super.key});
@@ -11,7 +12,9 @@ class AboutYWI extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('About YWI'),
+        title: Text('About YWI',style: TextStyle(fontFamily: 'OpenSansSemiBold'),),
+        leading: DrawerIcon(),
+        centerTitle: true,
       ),
       drawer: AppDrawer(),
       body: Container(

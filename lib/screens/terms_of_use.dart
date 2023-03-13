@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:youth/widgets/actionbutton.dart';
 
 import '../widgets/appdrawer.dart';
+import '../widgets/drawericon.dart';
 
 class TermsOfUse extends StatelessWidget {
   const TermsOfUse({super.key});
@@ -11,7 +12,9 @@ class TermsOfUse extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Terms Of Use'),
+        title: Text('Terms Of Use', style: TextStyle(fontFamily: 'OpenSansSemiBold'),),
+        leading: DrawerIcon(),
+        centerTitle: true,
       ),
       drawer: AppDrawer(),
       body: Container(
