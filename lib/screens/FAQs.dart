@@ -5,6 +5,7 @@ import 'package:youth/widgets/appdrawer.dart';
 
 import '../widgets/actionbutton.dart';
 import '../widgets/drawericon.dart';
+import '../widgets/faq_item.dart';
 
 class FAQsScreen extends StatefulWidget {
   static const routeName = '/FaqsScreen';
@@ -49,45 +50,53 @@ class _FAQsScreenState extends State<FAQsScreen> {
         leading: DrawerIcon(),
       ),
       body: SingleChildScrollView(
-        child: Container(
-          // margin: EdgeInsets.all(10),
-          child: ExpansionPanelList(
-            expansionCallback: (int index, bool isExpanded) {
-              setState(() {
-                _items[index].isExpanded = !isExpanded;
-                // _selectedIndex = isExpanded ? -1 : index;
-              });
-            },
-            children: _items.map((FAQs item) {
-              return ExpansionPanel(
-                headerBuilder: (BuildContext context, bool isExpanded) {
-                  return ListTile(
-                    minVerticalPadding: 20,
-                    title: Text(
-                      item.Question,
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        color: Theme.of(context).primaryColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                  );
-                },
-                body: Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Text(
-                    item.Answer,
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(color: Colors.black, fontSize: 14),
-                  ),
-                ),
-                isExpanded: item.isExpanded,
-              );
-            }).toList(),
-          ),
+        child: Column(
+          children: _items
+              .map((FAQs item) => FaqItem(
+                    faq: item,
+                  ))
+              .toList(),
         ),
       ),
     );
   }
+
+  // Container(
+  //         // margin: EdgeInsets.all(10),
+  //         child: ExpansionPanelList(
+  //           expansionCallback: (int index, bool isExpanded) {
+  //             setState(() {
+  //               _items[index].isExpanded = !isExpanded;
+  //               // _selectedIndex = isExpanded ? -1 : index;
+  //             });
+  //           },
+  //           children: _items.map((FAQs item) {
+  //             return ExpansionPanel(
+  //               headerBuilder: (BuildContext context, bool isExpanded) {
+  //                 return ListTile(
+  //                   minVerticalPadding: 20,
+  //                   title: Text(
+  //                     item.Question,
+  //                     textAlign: TextAlign.start,
+  //                     style: TextStyle(
+  //                       color: Theme.of(context).primaryColor,
+  //                       fontWeight: FontWeight.bold,
+  //                       fontSize: 16,
+  //                     ),
+  //                   ),
+  //                 );
+  //               },
+  //               body: Padding(
+  //                 padding: EdgeInsets.all(10.0),
+  //                 child: Text(
+  //                   item.Answer,
+  //                   textAlign: TextAlign.justify,
+  //                   style: TextStyle(color: Colors.black, fontSize: 14),
+  //                 ),
+  //               ),
+  //               isExpanded: item.isExpanded,
+  //             );
+  //           }).toList(),
+  //         ),
+  //       ),
 }

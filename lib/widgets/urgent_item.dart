@@ -178,40 +178,36 @@ class UrgentItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   child: Image.network(
                     image,
-                    width: 90,
+                    width: 100,
                     height: 100,
                     fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(width: 16.0),
+                SizedBox(width: 10.0),
                 Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        title,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18.0,
+                  child: Container(
+                    margin: EdgeInsets.all(8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          title,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.0,
+                              fontFamily: 'OpenSansSemiBold'),
                         ),
-                      ),
-                      SizedBox(height: 8.0),
-                      ExpandableText(
-                        description,
-                        expandText: 'read more',
-                        collapseText: 'read less',
-                        maxLines: 3,
-                        linkColor: Colors.blue,
-                        // onLinkTap: () {
-                        //   showModalBottomSheet(
-                        //   context: context,
-                        //   builder: (BuildContext context) {
-                        //     return _showbottom();
-                        //   },
-                        //   );
-                        // },
-                      ),
-                    ],
+                        SizedBox(height: 8.0),
+                        ExpandableText(
+                          description,
+                          expandText: 'read more',
+                          collapseText: 'read less',
+                          maxLines: 3,
+                          linkColor: Colors.blue,
+                          style: TextStyle(fontFamily: 'OpenSans'),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -343,97 +339,6 @@ class UrgentItem extends StatelessWidget {
               ],
             ),
           ),
-        ],
-      ),
-    );
-  }
-
-  Widget _showbottom() {
-    return Container(
-      height: 350,
-      width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-              alignment: Alignment.topCenter,
-              height: 100,
-              width: 100,
-              child: Image.network(image)),
-          SizedBox(
-            height: 5,
-          ),
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 20),
-          ),
-          Container(
-            margin: EdgeInsets.all(10),
-            child: Text(
-              description,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 14),
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            width: double.infinity,
-            margin: EdgeInsets.all(10),
-            child: Text(
-              'Contact Details',
-              textAlign: TextAlign.left,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-          ),
-          Container(
-            width: double.infinity,
-            margin: EdgeInsets.only(left: 20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Text("Email:"),
-                    InkWell(
-                      onTap: _sendingMails,
-                      child: Text(
-                        '$email',
-                        style: TextStyle(color: Colors.blue),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Text('Phone:'),
-                    InkWell(
-                      onTap: _makingPhoneCall,
-                      child: Text(
-                        '$phone',
-                        style: TextStyle(color: Colors.blue),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Text('Website:'),
-                    InkWell(
-                      onTap: _launchURLBrowser,
-                      child: Text(
-                        '$website',
-                        style: TextStyle(color: Colors.blue),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          )
         ],
       ),
     );

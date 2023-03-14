@@ -5,12 +5,14 @@ class DrawerIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+    final bool isSmallScreen = screenSize.width < 600;
     return Builder(
       builder: (context) => IconButton(
         icon: Image.asset(
           'assets/images/More.png',
-          height: 20,
-          width: 22,
+          height: 18,
+          width: 20,
         ),
         onPressed: () {
           Scaffold.of(context).openDrawer();
@@ -19,9 +21,3 @@ class DrawerIcon extends StatelessWidget {
     );
   }
 }
-
-
-
-
-  
-  

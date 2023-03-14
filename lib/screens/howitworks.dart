@@ -13,16 +13,52 @@ class HowItWorks extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('How It Works',style: TextStyle(fontFamily: 'OpenSansSemiBold'),),
+        title: Text(
+          'How It Works',
+          style: TextStyle(fontFamily: 'OpenSansSemiBold'),
+        ),
         leading: DrawerIcon(),
         centerTitle: true,
       ),
       drawer: AppDrawer(),
-      body: Container(
-        margin: EdgeInsets.all(10),
-        child: Text(
-          "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-          style: TextStyle(fontSize: 18),
+      body: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Title 1',
+                style: TextStyle(fontFamily: 'OpenSansSemiBold', fontSize: 22),
+              ),
+              Text(
+                "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.",
+                style: TextStyle(fontSize: 16, fontFamily: 'OpenSans'),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Title 2',
+                style: TextStyle(fontFamily: 'OpenSansSemiBold', fontSize: 22),
+              ),
+              Text(
+                "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
+                style: TextStyle(fontSize: 16, fontFamily: 'OpenSans'),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Title 2',
+                style: TextStyle(fontFamily: 'OpenSansSemiBold', fontSize: 22),
+              ),
+              Text(
+                "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
+                style: TextStyle(fontSize: 16, fontFamily: 'OpenSans'),
+              ),
+            ],
+          ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,

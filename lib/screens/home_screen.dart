@@ -114,7 +114,7 @@ class HomeScreen extends StatelessWidget {
           //       Scaffold.of(context).openDrawer();
           //     },
           //   ),
-          // ),
+          // )
           centerTitle: true,
           title: Text(
             'Home',
